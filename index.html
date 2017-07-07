@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <!-- Basic Page Needs
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <meta charset="utf-8">
+    <title>StarCharm - the most personal jewelry</title>
+    <meta name="description" content="Give the gift of the most personal jewelry - the astrological chart of
+  the heavens at the time and place of a person's birth - engraved onto a lovely pendant, charm or other
+  adornment">
+
+    <!-- Mobile Specific Metas
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- FONT
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link href='//fonts.googleapis.com/css?family=Raleway:400,400i,600,600i' rel='stylesheet' type='text/css'>
+
+    <!-- CSS
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/skeleton.css">
+    <link rel="stylesheet" href="css/custom.css">
+
+    <!-- Scripts
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        window.onload = function() {
+            var $emailbutton = $('#save_email')
+                    , $errormessage = $('#errormessage')
+                    , $emailform = $('#emailform')
+                    , $thanksdiv = $('.thanksdiv')
+                    , $providedAddress = $("#providedAddress");
+
+
+            $emailbutton.on('click', function (event) {
+                var emailaddress =  $("#email").val()
+                        , isValidEmail
+                        , isSaved = false
+                        , errorMessage = '';
+
+                event.preventDefault();
+
+                isValidEmail = validateEmail(emailaddress);
+
+                if (isValidEmail) {
+                    $errormessage.html('');
+
+                    var response = $.ajax({
+                        url: "http://starcharm.com/saveemail.php?email=" + encodeURIComponent(emailaddress),
+                        method: "get",
+                        dataType:'text',
+                        headers: {
+                            'Content-Type': 'text/plain',
+                        },
+                        success:function(response){
+                            if (response === 'success') {
+                                hideform(emailaddress);
+                            } else {
+                                errorMessage = response;
+                            }
+                        },
+                        error: function(XMLHttpRequest, textStatus, errorThrown) {
+                            errorMessage = textStatus  + ' ' + errorThrown;
+                        }
+                    });
+                } else {
+                    $errormessage.html("Sorry - " + emailaddress + "  is not a valid email address");
+                }
+            });
+
+            function hideform(email) {
+                $providedAddress.html(email);
+                $emailform.addClass('hidden');
+                $thanksdiv.removeClass('hidden');
+            }
+
+            function validateEmail(emailaddress) {
+                if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(emailaddress)) {
+                    return (true)
+                }
+                return (false)
+            }
+        }
+    </script>
+
+    <!-- Favicon
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link rel="icon" type="image/png" href="images/favicon-32x32.png" sizes="32x32"/>
+    <link rel="icon" type="image/png" href="images/favicon-16x16.png" sizes="16x16"/>
+
+</head>
+
+<body>
+<div class="section hero">
+    <div class="container">
+        <div class="row logo-wrapper">
+            <img class="logo" src="images/starcharm_logo.svg">
+        </div>
+
+        <div class="row">
+            <h3 class="hero-heading">The <em>most personal</em> jewelry</h3>
+
+            <p class="hero-text">
+                Let <em>StarCharm</em>
+                <small>™</small>
+                engrave the astrological chart of the
+                heavens from your (or someone special's) birth time and place
+                onto a beautiful adornment.
+            </p>
+        </div>
+    </div>
+</div>
+
+
+<div class="section">
+    <div class="container">
+        <div class="row">
+            <div class="two-thirds column">
+                <p>
+                    <strong>Do the stars influence your future?</strong> Many people know their ˜birth sign¨—
+                    the sector of the Zodiac, like Taurus, Virgo, or Scorpio, that is ascendant at the time of their
+                    birth.
+                    But astrologers believe determining the influence of the stars on a person's life and future
+                    involves a far more subtle and elaborate calculation than merely the Zodiac sign. It involves
+                    planets, the sun, the moon, and other heavenly bodies and their relationships to one another.
+                </p>
+
+                <p>
+                    The collection of these astrological factors can be illustrated in a ¨Natal Chart¨—a chart of
+                    the positions and relationships of heavenly bodies as seen from the precise place on Earth
+                    of someone's birth at the very moment of their birth. As the celestial bodies spin in an
+                    ever-changing
+                    ballet across the firmament, their specific configuration for a given time and birthplace,
+                    captured in a Natal Chart, is almost as unique to an individual as their fingerprint.
+                </p>
+                <em>StarCharm</em> can engrave this unique pattern, bound to a person's birth, onto a lovely
+                piece of jewelry—a pendant, earrings, a bracelet, a charm, a pin, a ring, or a key fob—they
+                can keep with them always.
+                <p>
+
+                </p>
+            </div>
+
+            <div class="one-third column">
+                <img class="u-max-full-width" src="images/natalchart_color.svg" alt="And example natal chart">
+                <p class="caption">An example Natal Chart</p>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="section">
+    <div class="container">
+        <h3 class="section-heading"><em>StarCharm</em> jewelry</h3>
+
+        <div class="row">
+            <div class="two-thirds column">
+                <p class="section-description">
+                    You can choose to have a Natal Chart laser-engraved on a selection of jewely designs in a variety of
+                    fashionable or precious materials and a range of sizes.
+                </p>
+
+                <p>
+                    <em>StarCharm</em> pendants, for example, are available in sterling silver,
+                    white gold, 14k gold, and rose gold as well as in a selection of birthstone colors
+                    on anodized aluminum. Sizes available include nickel-size, quarter-size and
+                    one-inch diameter.
+                </p>
+            </div>
+
+            <div class="one-third column colors-image-wrapper">
+                <img src="images/colors.jpg" alt="StarCharm metal options">
+                <p class="caption">Sterling silver, white gold, 14k gold and rose gold</p>
+            </div>
+
+
+            <div class="row">
+                <div class="one-half column category pendant-example">
+                    <img src="images/starcharm_front.png">
+                    <p class="caption"><em>StarCharm</em> pendant—front view</p>
+
+                </div>
+
+                <div class="one-half column category pendant-example">
+                    <img src="images/starcharm_back.png">
+                    <p class="caption"><em>StarCharm</em> pendant—reverse view</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <p>
+                    In addition to pendants, <em>StarCharm</em> also offers earrings, rings, keyfobs and
+                    cufflinks engraved with a Natal Chart. Future offerings will include bracelet charms, bracelets
+                    and pins.
+                </p>
+
+                <div class="category-photo">
+                    <img src="images/earring.jpg">
+                    <p class="caption"><em>StarCharm</em> earrings</p>
+
+                </div>
+
+                <div class="category-photo">
+                    <img src="images/ring.jpg">
+                    <p class="caption"><em>StarCharm</em> ring</p>
+                </div>
+
+                <div class="category-photo">
+                    <img src="images/keyfob.jpg">
+                    <p class="caption"><em>StarCharm</em> keyfob</p>
+                </div>
+
+                <div class="category-photo">
+                    <img src="images/cufflink.jpg">
+                    <p class="caption"><em>StarCharm</em> cufflinks</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="section">
+    <div class="container">
+        <h3 class="section-heading"><em>StarCharm</em>—coming soon</h3>
+
+        <div class="row">
+            <div class="one-half column">
+                The <em>StarCharm</em> online store will be launching soon. To receive an email when
+                you can order <em>StarCharm</em> jewelry, please share your email
+                address with us. As soon as the stars align, we'll let you
+                know you can return to place your order.
+                <strong>Thanks for your interest in <em>StarCharm</em></strong>
+            </div>
+
+            <div class="one-half column notify-me-form">
+                <h5>Notify me!</h5>
+
+                <form id="emailform">
+                    <label for="email">Your email address:</label>
+                    <input id="email" type="email" placeholder="you@example.com">
+                    <button id="save_email">Let me know!</button>
+                    <div id="errormessage" class="error"></div>
+                </form>
+
+                <div class="thanksdiv hidden">
+                    <strong>Thanks!</strong> We'll email you at <span id="providedAddress"></span> when <em>StarCharm</em> launches.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="section footer">
+    <div class="container">
+        <p>© Copyright 2017 - StarCharm &nbsp;|&nbsp; For further information email info@starcharm.com</p>
+    </div>
+</div>
+
+</body>
+</html>

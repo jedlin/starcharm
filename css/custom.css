@@ -1,0 +1,111 @@
+body {
+    background-color: cornsilk;
+}
+
+
+.logo {
+    max-width: 80vw;
+}
+
+.logo-wrapper {
+    margin: 20px auto 0;
+}
+
+
+.hero-heading {
+    font-size: 2.4rem;
+}
+
+.hero-text {
+    font-size: 1.8rem;
+    max-width: 680px;
+}
+
+@media only screen and (min-width: 550px) {
+    .logo {
+        max-width: 450px;
+    }
+
+    .logo-wrapper {
+        margin: 20px auto;
+    }
+
+    .hero-heading {
+        font-size: 3.6rem;
+    }
+}
+
+.caption {
+    margin: 6px auto;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+.pendant-example {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.pendant-example img {
+    max-width: 200px;
+}
+
+.category-photo {
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+@media only screen and (min-width: 550px) {
+    .category-photo {
+        width: 48%;
+    }
+}
+
+@media only screen and (min-width: 960px) {
+    .category-photo {
+        width: 24%;
+    }
+}
+
+.colors-image-wrapper {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.notify-me-form h5 {
+    margin-top: 20px;
+    margin-bottom: 0;
+}
+
+.notify-me-form button {
+    background-color: #4ebbcc;
+    color: white;
+}
+
+@media only screen and (min-width: 550px) {
+    .notify-me-form h5 {
+        margin-top: 0;
+    }
+}
+
+.footer {
+    margin-top: 50px;
+    border-top: 1px solid #ccc;
+    padding: 30px;
+    text-align: center;
+    font-size: 1.4rem;
+}
+
+.hidden {
+    display: none;
+}
+
+.error {
+    color: red;
+}
+
+.thanksdiv {
+    margin-top: 20px;
+}
