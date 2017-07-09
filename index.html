@@ -28,7 +28,7 @@
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script>
-        window.onload = function() {
+        window.onload = function () {
             var $emailbutton = $('#save_email')
                     , $errormessage = $('#errormessage')
                     , $emailform = $('#emailform')
@@ -37,7 +37,7 @@
 
 
             $emailbutton.on('click', function (event) {
-                var emailaddress =  $("#email").val()
+                var emailaddress = $("#email").val()
                         , isValidEmail
                         , isSaved = false
                         , errorMessage = '';
@@ -52,19 +52,19 @@
                     var response = $.ajax({
                         url: "http://starcharm.com/saveemail.php?email=" + encodeURIComponent(emailaddress),
                         method: "get",
-                        dataType:'text',
+                        dataType: 'text',
                         headers: {
                             'Content-Type': 'text/plain',
                         },
-                        success:function(response){
+                        success: function (response) {
                             if (response === 'success') {
                                 hideform(emailaddress);
                             } else {
                                 errorMessage = response;
                             }
                         },
-                        error: function(XMLHttpRequest, textStatus, errorThrown) {
-                            errorMessage = textStatus  + ' ' + errorThrown;
+                        error: function (XMLHttpRequest, textStatus, errorThrown) {
+                            errorMessage = textStatus + ' ' + errorThrown;
                         }
                     });
                 } else {
@@ -99,18 +99,36 @@
     <div class="container">
         <div class="row logo-wrapper">
             <img class="logo" src="images/starcharm_logo.svg">
-        </div>
-
-        <div class="row">
             <h3 class="hero-heading">The <em>most personal</em> jewelry</h3>
+        </div>
+    </div>
+</div>
 
-            <p class="hero-text">
-                Let <em>StarCharm</em>
-                <small>™</small>
-                engrave the astrological chart of the
-                heavens from your (or someone special's) birth time and place
-                onto a beautiful adornment.
-            </p>
+<div class="section">
+    <div class="container">
+        <div class="row">
+            <div class="one-half column">
+                <p class="hero-text">
+                    Let <em>StarCharm</em>
+                    <small>™</small>
+                    engrave the astrological chart of
+                    the heavens—as seen from your (or someone special's) birth time and place—onto
+                    a beautiful adornment.
+                </p>
+
+                <p>
+                    <strong>Do the stars influence your future?</strong> Many people know their ˜birth sign¨—
+                    the sector of the Zodiac, like Taurus, Virgo, or Scorpio, that is ascendant at the time of their
+                    birth.
+                    But astrologers believe determining the influence of the stars on a person's life and future
+                    involves a far more subtle and elaborate calculation than merely the Zodiac sign. It involves
+                    planets, the sun, the moon, and other heavenly bodies and their relationships to one another.
+                </p>
+            </div>
+
+            <div class="one-half column">
+                <img class="hero-image" src="images/pendant_on_woman.jpg" alt="A StarCharm pendant">
+            </div>
         </div>
     </div>
 </div>
@@ -120,15 +138,6 @@
     <div class="container">
         <div class="row">
             <div class="two-thirds column">
-                <p>
-                    <strong>Do the stars influence your future?</strong> Many people know their ˜birth sign¨—
-                    the sector of the Zodiac, like Taurus, Virgo, or Scorpio, that is ascendant at the time of their
-                    birth.
-                    But astrologers believe determining the influence of the stars on a person's life and future
-                    involves a far more subtle and elaborate calculation than merely the Zodiac sign. It involves
-                    planets, the sun, the moon, and other heavenly bodies and their relationships to one another.
-                </p>
-
                 <p>
                     The collection of these astrological factors can be illustrated in a ¨Natal Chart¨—a chart of
                     the positions and relationships of heavenly bodies as seen from the precise place on Earth
@@ -146,7 +155,7 @@
             </div>
 
             <div class="one-third column">
-                <img class="u-max-full-width" src="images/natalchart_color.svg" alt="And example natal chart">
+                <img class="u-max-full-width" src="images/natalchart_color.svg" alt="An example natal chart">
                 <p class="caption">An example Natal Chart</p>
 
             </div>
@@ -170,7 +179,7 @@
                     <em>StarCharm</em> pendants, for example, are available in sterling silver,
                     white gold, 14k gold, and rose gold as well as in a selection of birthstone colors
                     on anodized aluminum. Sizes available include nickel-size, quarter-size and
-                    one-inch diameter.
+                    one-inch diameter. Prices begin at $34.99
                 </p>
             </div>
 
@@ -201,25 +210,55 @@
                 </p>
 
                 <div class="category-photo">
-                    <img src="images/earring.jpg">
+                    <img src="images/earring.jpg" alt="StarCharm earrings">
                     <p class="caption"><em>StarCharm</em> earrings</p>
 
                 </div>
 
                 <div class="category-photo">
-                    <img src="images/ring.jpg">
+                    <img src="images/ring.jpg" alt="StarCharm ring">
                     <p class="caption"><em>StarCharm</em> ring</p>
                 </div>
 
                 <div class="category-photo">
-                    <img src="images/keyfob.jpg">
+                    <img src="images/keyfob.jpg" alt="StarCharm keyfob">
                     <p class="caption"><em>StarCharm</em> keyfob</p>
                 </div>
 
                 <div class="category-photo">
-                    <img src="images/cufflink.jpg">
+                    <img src="images/cufflink.jpg" alt="StarCharm cufflinks">
                     <p class="caption"><em>StarCharm</em> cufflinks</p>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="section">
+    <div class="container">
+        <h3 class="section-heading">A report to complement your <em>StarCharm</em></h3>
+
+        <div class="row">
+            <div class="one-half column">
+                <p><strong>Each <em>StarCharm</em> adornment comes with a complete astrological report
+                interpreting its Natal Chart.</strong></p>
+
+                <p>It includes details about the Zodiac positions of each of the heavenly bodies represented
+                on the chart—not only the Sun but also the Moon, Mercury, Venus, Mars, Jupiter,
+                Uranus and Pluto, along with other bodies considered influential by astrology such as Lilith
+                and the Ascendant node. </p>
+
+                <p>Also included are details of the relationships of these bodies—which are in favorable
+                aspects to each other, reinforcing their influence, and which may be cancelling out
+                each other's effects.</p>
+
+                <p>All of these details will be interpreted to suggest how their influences and
+                combinations may bear on the person they describe and what the future may hold.</p>
+            </div>
+
+            <div class="one-half column report-image-wrapper">
+                <img class="report-image" src="images/report_mock.jpg"
+                     alt="Picture of the report that accompanies every StarCharm">
             </div>
         </div>
     </div>
@@ -231,11 +270,12 @@
 
         <div class="row">
             <div class="one-half column">
-                The <em>StarCharm</em> online store will be launching soon. To receive an email when
+                <p>The <em>StarCharm</em> online store will be launching soon. To receive an email when
                 you can order <em>StarCharm</em> jewelry, please share your email
                 address with us. As soon as the stars align, we'll let you
-                know you can return to place your order.
-                <strong>Thanks for your interest in <em>StarCharm</em></strong>
+                know you can return to place your order.</p>
+
+                <p><strong>Thanks for your interest in <em>StarCharm</em>.</strong></p>
             </div>
 
             <div class="one-half column notify-me-form">
@@ -249,8 +289,14 @@
                 </form>
 
                 <div class="thanksdiv hidden">
-                    <strong>Thanks!</strong> We'll email you at <span id="providedAddress"></span> when <em>StarCharm</em> launches.
+                    <strong>Thanks!</strong> We'll email you at <span id="providedAddress"></span> when
+                    <em>StarCharm</em> launches.
                 </div>
+
+
+                <p><small>We promise not to share your email address or use it
+                    for any purpose other than to notify you when the StarCharm online
+                    store is available for orders.</small></p>
             </div>
         </div>
     </div>
