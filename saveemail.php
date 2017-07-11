@@ -2,9 +2,15 @@
 
 // inserts an email address from request param if not a duplicate
 
+// get db pw from config file
+$configFile = "../../../config/sc_db_pw.txt";
+$fh = fopen($configFile, 'r');
+$db_pw = fread($fh, filesize($configFile));
+fclose($fh);
+
 $servername = "localhost";
 $username = "webmondc_star";
-$password = "[private]";
+$password = $db_pw;
 $db = "webmondc_starcharm";
 $address = urldecode($_REQUEST['email']);
 $error = "";

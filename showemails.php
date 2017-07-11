@@ -2,9 +2,15 @@
 
 // prints out emails stored in starcharm email database
 
+// get db pw from config file
+$configFile = "../../../config/sc_db_pw.txt";
+$fh = fopen($configFile, 'r');
+$db_pw = fread($fh, filesize($configFile));
+fclose($fh);
+
 $servername = "localhost";
 $username = "webmondc_star";
-$password = "[private]";
+$password = $db_pw;
 $db = "webmondc_starcharm";
 
 $header = "<html> <head><title>Starcharm saved emails</title> </head> </html> <body style='font-family: sans-serif'>";
@@ -20,16 +26,22 @@ if ($conn->connect_error) {
 
 mysql_select_db($db) or die( "Unable to select database");
 
-@mysql_query("BEGIN");
-$query = "SELECT * from email;";
-$result=mysql_query($query);
+$query1 = "SELECT count(*) as num_emails from email;";
+$result1=mysql_query($query1);
+while ($row1 = mysql_fetch_assoc($result1)) {
+    $email_count = number_format($row1["num_emails"]);
+}
+
+$query2 = "SELECT * from email;";
+$result2=mysql_query($query2);
+
 mysql_close();
 
 echo $header;
-echo "<h3>Starcharm saved emails</h3>";
+echo "<h3>" . $email_count . " Starcharm saved emails</h3>";
 echo "<table border='1' cellspacing='0' cellpadding='4'>";
 
-while ($row = mysql_fetch_assoc($result)) {
+while ($row = mysql_fetch_assoc($result2)) {
     $email = $row['email'];
     $create_time = $row['create_time'];
     $line = $email . " </td><td>" . $create_time . "<br>";
