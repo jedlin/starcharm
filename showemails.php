@@ -32,7 +32,7 @@ while ($row1 = mysql_fetch_assoc($result1)) {
     $email_count = number_format($row1["num_emails"]);
 }
 
-$query2 = "SELECT * from email;";
+$query2 = "SELECT * from email order by create_time DESC;";
 $result2=mysql_query($query2);
 
 mysql_close();
